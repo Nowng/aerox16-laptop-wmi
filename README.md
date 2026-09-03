@@ -11,11 +11,12 @@ Copy `aerox16-laptop.conf` to `/etc/modules-load.d/` to ensure the kernel module
 ### Manual Installation
 If you have Secure Boot enabled, you must sign the kernel module after compilation.
 
+To install the driver:
 ```
-make
-sudo insmod aerox16-laptop.ko
+make all
+sudo make install
 ```
-*Note: The `insmod` command must be run after every reboot. Recompile with `make` if the kernel is updated.*
+*Note: This will automatically compile, copy, and load the module.*
 
 ### Removal
 To remove the DKMS version:
@@ -26,7 +27,7 @@ sudo dkms remove aerox16-laptop/<version> --all
 
 To remove the manually installed module:
 ```
-sudo rmmod aerox16_laptop
+sudo make uninstall
 ```
 
 ## Usage
